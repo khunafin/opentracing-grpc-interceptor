@@ -30,7 +30,8 @@ class OpenTracingInterceptor extends Interceptor
         array $metadata = [],
         array $options = [],
         $continuation
-    ) {
+    )
+    {
         $spanOptions = [
             'tags' => [
                 Tags\SPAN_KIND => Tags\SPAN_KIND_RPC_CLIENT,
