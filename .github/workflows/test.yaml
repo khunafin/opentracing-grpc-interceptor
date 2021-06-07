@@ -45,8 +45,8 @@ jobs:
           composer update --${{ matrix.dependency-version }} --prefer-dist --no-interaction
 
       - name: Install GRPC
-          run: |
-            composer require --${{ matrix.dependency-version }} --prefer-dist --no-interaction grpc/grpc:${{ matrix.grpc-version }}
+        run: |
+          composer require --${{ matrix.dependency-version }} --prefer-dist --no-interaction grpc/grpc:${{ matrix.grpc-version }}
 
       - name: Execute tests
         run: ./vendor/bin/phpunit tests
