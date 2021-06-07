@@ -4,10 +4,7 @@
 ### Usage example
 ```php
 use Grpc\Internal\InterceptorChannel;
-use Grpc\ChannelCredentials;
-
 use OpenTracingInterceptor\Interceptor;
-
 use Acme\Tracer;
 use Foo\Bar\SomeGrpcClient;
 use Foo\Bar\SomeGrpcMethodArgs;
@@ -15,9 +12,7 @@ use Foo\Bar\SomeGrpcMethodArgs;
 $host = 'grpc.server.com:1313';
 $tracer =  new Tracer();
 
-$channel = SomeGrpcClient::getDefaultChannel($host, [
-    'credentials' => ChannelCredentials::createInsecure(),
-]);
+$channel = SomeGrpcClient::getDefaultChannel($host);
 $openTracingInterceptor = new Interceptor($tracer);
 $interceptor = new InterceptorChannel($channel, $openTracingInterceptor);
 
@@ -37,4 +32,5 @@ $tracer->flush();
 ## Reference
 
 [OpenTracing](https://opentracing.io/)
+
 [Jaeger](https://uber.github.io/jaeger/)
