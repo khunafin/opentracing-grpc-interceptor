@@ -1,0 +1,40 @@
+{
+  "name": "citymobil/opentracing-grpc-interceptor",
+  "type": "library",
+  "description": "Grpc interceptor for OpenTracing",
+  "license": "Apache-2.0",
+  "minimum-stability": "stable",
+  "authors": [
+    {
+      "name": "Nail Khunafin",
+      "email": "nail.khunafin@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^7.2 || ^8.0",
+    "grpc/grpc": "=1.27.0",
+    "opentracing/opentracing": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "OpenTracing\\Tests\\": "tests/OpenTracing"
+    }
+  },
+  "scripts": {
+    "fix-lint": "phpcbf --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
+    "lint": "phpcs --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
+    "test": "phpunit tests",
+    "static-check": "phpstan analyse"
+  }
+}
