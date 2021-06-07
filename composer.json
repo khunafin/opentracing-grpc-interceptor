@@ -36,9 +36,9 @@
     }
   },
   "scripts": {
-    "fix-lint": "./vendor/bin/phpcbf --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
-    "lint": "./vendor/bin/phpcs --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
-    "test": "./vendor/bin/phpunit tests",
-    "static-check": "./vendor/bin/phpstan analyse"
+    "fixer": "vendor/bin/php-cs-fixer fix  ./ 1>&2",
+    "lint": "vendor/bin/phpcs --standard=ZEND --standard=PSR2 --ignore=*/vendor/* ./",
+    "test": "vendor/bin/phpunit tests",
+    "static-check": "vendor/bin/phpstan analyze src tests"
   }
 }

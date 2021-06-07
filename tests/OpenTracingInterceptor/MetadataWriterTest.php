@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class MetadataWriterTest extends TestCase
 {
-
     public function testOffsetSet()
     {
         $key = 'someKey';

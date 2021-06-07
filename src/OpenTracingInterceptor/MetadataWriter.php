@@ -26,7 +26,7 @@ class MetadataWriter implements ArrayAccess
     {
         if (is_null($offset)) {
             $this->metadata[] = [$value];
-        } else if (array_key_exists($offset, $this->metadata)) {
+        } elseif (array_key_exists($offset, $this->metadata)) {
             array_push($this->metadata[$offset], $value);
         } else {
             $this->metadata[$offset] = [$value];

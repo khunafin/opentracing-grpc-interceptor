@@ -8,8 +8,8 @@ jobs:
       matrix:
         php:
           - '7.2'
-          - '7.3'
-          - '7.4'
+#          - '7.3'
+#          - '7.4'
         dependency-version: [prefer-stable]
     name: ${{ matrix.php }} - ${{ matrix.dependency-version }}
 
