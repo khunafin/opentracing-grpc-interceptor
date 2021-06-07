@@ -9,14 +9,12 @@ use OpenTracing\Tags;
 use const OpenTracing\Formats\TEXT_MAP;
 use PHPUnit\Framework\TestCase;
 
-
 class JaegerInterceptorTest extends TestCase
 {
     private const OPERATION_NAME = 'test_name';
 
     public function testSuccessInterceptUnaryUnary()
     {
-
         $injector = function ($spanContext, &$carrier) {
         };
         $tracer = new MockTracer([TEXT_MAP => $injector]);
@@ -39,8 +37,7 @@ class JaegerInterceptorTest extends TestCase
         $passMetadata = [];
         $passOption = [];
 
-        $continuation = function ($method, $arguments, $deserialize, $metadata, $options)
-        use (&$passMethod, &$passArgument, &$passDeserialize, &$passMetadata, &$passOption) {
+        $continuation = function ($method, $arguments, $deserialize, $metadata, $options) use (&$passMethod, &$passArgument, &$passDeserialize, &$passMetadata, &$passOption) {
             $passMethod = $method;
             $passArgument = $arguments;
             $passDeserialize = $deserialize;
@@ -97,8 +94,7 @@ class JaegerInterceptorTest extends TestCase
         $passMetadata = [];
         $passOption = [];
 
-        $continuation = function ($method, $arguments, $deserialize, $metadata, $options)
-        use (&$passMethod, &$passArgument, &$passDeserialize, &$passMetadata, &$passOption, $errorMessage) {
+        $continuation = function ($method, $arguments, $deserialize, $metadata, $options) use (&$passMethod, &$passArgument, &$passDeserialize, &$passMetadata, &$passOption, $errorMessage) {
             $passMethod = $method;
             $passArgument = $arguments;
             $passDeserialize = $deserialize;
@@ -119,7 +115,6 @@ class JaegerInterceptorTest extends TestCase
                 $continuation
             );
         } catch (\Exception $ex) {
-
         }
 
         $this->assertEquals($method, $passMethod);
@@ -140,16 +135,16 @@ class JaegerInterceptorTest extends TestCase
         $this->assertArrayHasKV($tags, 'error_message', $errorMessage);
     }
 
-        /**
-         * @param array $array
-         * @param $key
-         * @param $value
-         * @throw InvalidArgumentException
-         * @throw ExpectationFailedException
-         */
-        private function assertArrayHasKV(array $array, $key, $value)
-        {
-            $this->assertArrayHasKey($key, $array);
-            $this->assertEquals($array[$key], $value);
-        }
+    /**
+     * @param array $array
+     * @param $key
+     * @param $value
+     * @throw InvalidArgumentException
+     * @throw ExpectationFailedException
+     */
+    private function assertArrayHasKV(array $array, $key, $value)
+    {
+        $this->assertArrayHasKey($key, $array);
+        $this->assertEquals($array[$key], $value);
     }
+}
