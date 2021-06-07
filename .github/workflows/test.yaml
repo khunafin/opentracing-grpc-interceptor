@@ -14,14 +14,11 @@ jobs:
           - '7.4'
         dependency-version: [prefer-stable]
         grpc-version:
-          - '1.26.0'
-          - '1.27.0'
-          - '1.30.0'
-          - '1.34.0'
-          - '1.35.0'
-          - '1.36.0'
-          - '1.37.0'
-          - '1.38.0'
+          - '1.25.*'
+          - '1.26.*'
+          - '1.27.*'
+          - '1.30.*'
+          - '1.34.*'
     name: ${{ matrix.php }} - ${{ matrix.dependency-version }} - ${{ matrix.grpc-version }}
 
     steps:
